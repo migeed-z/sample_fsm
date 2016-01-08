@@ -30,7 +30,7 @@ class Population:
         return self
 
     #how do we union types in retic?
-    def regenerate(self, rate, q=False):
+    def regenerate(self, rate):
         """
         Replaces r elements of p with r 'children' of randomly chosen
         fittest elements of p, also shuffle constraint (r < (len p))
@@ -38,8 +38,7 @@ class Population:
         :param q: threshold
         :return: Population
         """
-        payoffs = self.payoffs()
-        substitutes = choose_randomly(payoffs, rate)
+        substitutes = choose_randomly(rate)
         # clone all automata in a at substitues
         b = self.a.copy()
         # then "move" these clones into the first "rate" slots of a
