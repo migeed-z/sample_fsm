@@ -1,28 +1,11 @@
 from random import random, sample
 
+rand = (list(map(int, [line.strip() for line in open('random-numbers.txt')])))
+
 def choose_randomly(probabilities, speed):
-    indicies = sample(range(0, len(probabilities)), speed)
-    # s = accumulated_s(probabilities)
-    # for i in range(speed):
-    #     r = q or random()
-    #     indicies = []
-    #     counter = 0
-    #     for percent in s:
-    #         if percent >= r:
-    #             indicies = indicies + [counter]
-    #         counter=+1
-
+    #indicies = sample(range(0, len(probabilities)), speed)
+    indicies = [i for i in rand if (i <= speed)][:speed]
     return indicies
-
-# def accumulated_s(probabilities):
-#     total = sum(probabilities)
-#     payoffs = probabilities
-#     result = []
-#     next = 0
-#     for element in payoffs:
-#         next += element
-#         result = result + [next/total]
-#     return result
 
 def relative_average(l, w):
     return sum(l) / w / len(l)

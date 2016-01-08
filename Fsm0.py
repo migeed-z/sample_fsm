@@ -1,9 +1,5 @@
 from Utilities import relative_average
 from Other import build_random_population
-import plotly.plotly as py
-import plotly.graph_objs as go
-import numpy as np
-
 
 def run():
     simulation_to_lines(evolve(build_random_population(100), 1000, 10, 20))
@@ -43,7 +39,6 @@ def simulation_to_lines(data):
         counter+=1
 
     print(str(result))
-
 
 
 run()

@@ -1,7 +1,9 @@
 from pip._vendor.requests.packages.urllib3.connectionpool import xrange
 from Automata import Automaton
 from Population import Population
+from Utilities import rand
 import random
+
 
 def make_random_automaton(n):
     """
@@ -10,10 +12,15 @@ def make_random_automaton(n):
     :param n:
     :return: Automation
     """
-    seed = random.randrange(n)
+
+    index = next(i for i in range(0, 10000) if rand[i] <= n)
+    seed = rand[index]
+
     table = []
-    for i in range(0, n):
-        trans = random.sample(xrange(n), n)
+    for i in range(n):
+        trans = [i for i in rand if (i <= n)][:n]
+
+        #trans = random.sample(xrange(n), n)
         table = table + [trans]
     return Automaton(seed, 0, table, seed)
 

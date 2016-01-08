@@ -1,4 +1,3 @@
-from random import shuffle
 from Utilities import choose_randomly
 
 class Population:
@@ -47,7 +46,7 @@ class Population:
         for i in range(rate):
             index = substitutes[i]
             self.a[i] = b[index]
-        shuffle(self.a)
+        #shuffle(self.a)
         return self
 
     def reset(self):
