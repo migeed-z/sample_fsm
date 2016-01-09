@@ -3,10 +3,10 @@ from Other import build_random_population
 from Population import Population
 from retic import List
 
-def run() -> List(List(float)):
+def run():
     simulation_to_lines(evolve(build_random_population(100), 1000, 10, 20))
 
-def evolve(p, c: int, s: int, r: int) -> List(float):
+def evolve(p, c: int, s: int, r: int):
     """
     Computes the list of average payoffs over the evolution of population
     p for c cycles of match_ups with r rounds per match and at birth/death
@@ -28,7 +28,6 @@ def evolve(p, c: int, s: int, r: int) -> List(float):
 
     return payoffs
 
-#TODO: Adding a void return type crashes program
 def simulation_to_lines(data: List(float)):
     """
     Turn average payoffs into a list of Cartesian points

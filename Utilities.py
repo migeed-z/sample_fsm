@@ -1,7 +1,7 @@
 from retic import List
 
-#TODO: add type to variable
-rand = (list(map(int, [line.strip() for line in open('random-numbers.txt')])))
+
+rand = (list(map(int, [line.strip() for line in open('/Users/zeinamigeed/IdeaProjects/sample-fsm-untyped/random-numbers.txt')])))
 
 def choose_randomly(speed: int) -> List(int):
     indicies = [i for i in rand if (i <= speed)][:speed]

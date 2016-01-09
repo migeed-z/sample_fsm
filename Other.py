@@ -23,7 +23,6 @@ def make_random_automaton(n: int):
     return Automaton(seed, 0, table, seed)
 
 
-#TODO: cannot add return type due to bug
 def build_random_population(n: int):
     """
     for even n, build a population of size n

@@ -2,11 +2,9 @@ from retic import List
 from retic import Dyn
 class Automaton:
 
-    #TODO: Variables are not typed yet
     PAYOFF_TABLE = [[(3, 3), (0, 4)],
                     [(4, 0), (1, 1)]]
 
-    #TODO: Should return an Automation. Bug preventing adding this type.
     def __init__(self, current: int,
                  payoff: float,
                  table: List(List(int)),
@@ -16,7 +14,7 @@ class Automaton:
         self.table = table
         self.initial = initial
 
-    def interact(self, other: Dyn, r: int) -> List:
+    def interact(self, other, r: int) -> List:
         """
         the sum of pay-offs for the two respective automata over all rounds
         :param other: Automaton
@@ -36,12 +34,14 @@ class Automaton:
             y1 = y1 + p1
             c2 = t2[c2][c1]
             y2 = y2 + p2
+
         self.current = c1
         self.payoff = y1
         other.current = c2
         other.payoff = y2
 
         return [self, other]
+
 
     def pay(self) -> float:
         """
@@ -50,7 +50,6 @@ class Automaton:
         """
         return self.payoff
 
-    #TODO: cannot type due to bug
     def clone(self):
         """
         reset payoff and current state to initial strategy
@@ -58,7 +57,6 @@ class Automaton:
         """
         return Automaton(self.current, 0, self.table, self.initial)
 
-    #TODO: cannot type due to bug
     def reset(self):
         """
         reset the historic payoff
