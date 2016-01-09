@@ -1,11 +1,9 @@
-from pip._vendor.requests.packages.urllib3.connectionpool import xrange
 from Automata import Automaton
 from Population import Population
 from Utilities import rand
-import random
 
 
-def make_random_automaton(n):
+def make_random_automaton(n: int):
     """
     builds an n states x k inputs automation
     with a random transition table
@@ -25,7 +23,7 @@ def make_random_automaton(n):
     return Automaton(seed, 0, table, seed)
 
 
-def build_random_population(n):
+def build_random_population(n: int):
     """
     for even n, build a population of size n
     :param n: Natural

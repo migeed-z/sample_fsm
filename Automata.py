@@ -1,15 +1,20 @@
+from retic import List
+from retic import Dyn
 class Automaton:
 
     PAYOFF_TABLE = [[(3, 3), (0, 4)],
                     [(4, 0), (1, 1)]]
 
-    def __init__(self, current, payoff, table,  initial):
+    def __init__(self, current: int,
+                 payoff: float,
+                 table: List(List(int)),
+                 initial: int):
         self.current = current
         self.payoff = payoff
         self.table = table
         self.initial = initial
 
-    def interact(self, other, r):
+    def interact(self, other, r: int) -> List:
         """
         the sum of pay-offs for the two respective automata over all rounds
         :param other: Automaton
@@ -35,13 +40,10 @@ class Automaton:
         other.current = c2
         other.payoff = y2
 
-        return (self, other)
+        return [self, other]
 
-    def jump(self, input, delta):
-        self.current = self.table[self.current][input]
-        self.payoff = self.payoff + delta
 
-    def pay(self):
+    def pay(self) -> float:
         """
         reset the historic payoff
         :return: float
@@ -62,14 +64,14 @@ class Automaton:
         """
         return Automaton(self.current, 0, self.table, self.initial)
 
-    def compute_payoffs(self, other_current):
+    def compute_payoffs(self, other_current: int) -> List(float):
         """
         :param other_current: Natural
         :return: [Automaton]
         """
         return self.PAYOFF_TABLE[self.current][other_current]
 
-    def __eq__(self, other):
+    def __eq__(self, other: Dyn) -> bool:
         if not isinstance(other, Automaton):
             return False
         else:

@@ -1,11 +1,13 @@
 from Utilities import choose_randomly
+from Automata import Automaton
+from retic import List
 
 class Population:
     """
     Populations of Automata
     """
 
-    def __init__(self, a):
+    def __init__(self, a: List(Automaton)):
         self.a = a
 
     def payoffs(self):
@@ -14,7 +16,7 @@ class Population:
             result = result + [element.pay()]
         return result
 
-    def match_up(self, r):
+    def match_up(self, r: int):
         """
         matches up neighboring pairs of
         automata in this population for r rounds
@@ -30,7 +32,7 @@ class Population:
         return self
 
     #how do we union types in retic?
-    def regenerate(self, rate):
+    def regenerate(self, rate: int):
         """
         Replaces r elements of p with r 'children' of randomly chosen
         fittest elements of p, also shuffle constraint (r < (len p))
