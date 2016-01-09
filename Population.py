@@ -6,7 +6,7 @@ class Population:
     """
     Populations of Automata
     """
-
+    #TODO: cannot add a return type due to bug
     def __init__(self, a: List(Automaton)):
         self.a = a
 
@@ -16,6 +16,7 @@ class Population:
             result = result + [element.pay()]
         return result
 
+    #TODO: cannot add return type due to bug
     def match_up(self, r: int):
         """
         matches up neighboring pairs of
@@ -31,7 +32,7 @@ class Population:
             self.a[i+1] = a2
         return self
 
-    #how do we union types in retic?
+    #TODO: cannot add return type due to bug
     def regenerate(self, rate: int):
         """
         Replaces r elements of p with r 'children' of randomly chosen
@@ -50,6 +51,7 @@ class Population:
         #shuffle(self.a)
         return self
 
+    #TODO: program crashes when adding a void return type
     def reset(self):
         """
         Reset all automata in a
